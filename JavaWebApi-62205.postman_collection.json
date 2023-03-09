@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "4aeef654-8cb5-4c41-92a7-ac591bac47a8",
+		"name": "JavaWebApi-62205",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7489244"
+	},
+	"item": [
+		{
+			"name": "getUserById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/jwa01/JWA/V1/users/45",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jwa01",
+						"JWA",
+						"V1",
+						"users",
+						"45"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserByIdV2",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "getAllUsers",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "addUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 4,\r\n    \"nombreApellido\": \"Victor M\",\r\n    \"mail\": \"vic@gmail.com\",\r\n    \"direccion\": \"Av Las Heras 321, CABA\",\r\n    \"clave\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/jwa01/JWA/V2/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jwa01",
+						"JWA",
+						"V2",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
