@@ -1,4 +1,4 @@
-package dao;
+package com.educacionit.jwa01.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,6 +14,8 @@ public class UserDao implements Dao<User, Long>, MySQLConnection {
 	private PreparedStatement psGetUserById = null;
 	private PreparedStatement psGetAllUsers = null;
 	private PreparedStatement psAdd = null;
+	private PreparedStatement psDel = null;
+	private PreparedStatement psUpd = null;
 	
 	@Override
 	public User getById(Long id) {
@@ -87,15 +89,39 @@ public class UserDao implements Dao<User, Long>, MySQLConnection {
 	}
 
 	@Override
-	public Boolean del(User t) {
-		// TODO Auto-generated method stub
-		return null;
+	public Boolean del(User user) {
+		Boolean resultado = false;
+		try {
+			if (psDel == null) {
+				psDel = conectarDB().prepareStatement("DELETE FROM Users WHERE id = ?");
+			}
+			psDel.setLong(1, user.getId());
+			if (psDel.executeUpdate()==1) resultado = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return resultado;
 	}
 
 	@Override
-	public Boolean upd(User t) {
-		// TODO Auto-generated method stub
-		return null;
+	public Boolean upd(User user) {
+		Boolean resultado = false;
+		try {
+			if (psUpd == null) {
+				psUpd = conectarDB().prepareStatement(
+						"UPDATE Users set nombreApellido=?, mail=?, direccion=?, clave=MD5(?) "
+						+ " WHERE id = ?");
+			}
+			psUpd.setString(1, user.getNombreApellido());
+			psUpd.setString(2, user.getMail());
+			psUpd.setString(3, user.getDireccion());
+			psUpd.setString(4, user.getClave());
+			psUpd.setLong(5, user.getId());
+			if (psUpd.executeUpdate() == 1 ) resultado = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return resultado;
 	}
 
 	

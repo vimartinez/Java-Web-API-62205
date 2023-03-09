@@ -1,4 +1,4 @@
-package dao;
+package com.educacionit.jwa01.dao;
 
 import java.util.List;
 

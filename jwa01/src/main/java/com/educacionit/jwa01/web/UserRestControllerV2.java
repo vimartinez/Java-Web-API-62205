@@ -3,8 +3,10 @@ package com.educacionit.jwa01.web;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -65,6 +67,41 @@ public class UserRestControllerV2 {
 					.build();
 		}
 		
+	}
+	
+	@DELETE
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response delUser(User user) {	
+		if (userService.delUser(user)) {
+			return Response.status(Response.Status.OK)
+					.entity("{\"mensaje\":\"Se eliminó el usuario correctamente. \"}")
+					.type(MediaType.APPLICATION_JSON)
+					.build();
+		} else {
+			return Response
+					.status(Response.Status.CONFLICT)
+					.entity("{\"mensaje\":\"No se pudo eliminar el usuario. \"}")
+					.type(MediaType.APPLICATION_JSON)
+					.build();
+		}	
+	}
+	
+	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response updUser(User user) {
+		if (userService.updUser(user)) {
+			return Response
+					.status(Response.Status.OK)
+					.entity("{\"mensaje\":\"Se actualizó el usuario correctamente. \"}")
+					.type(MediaType.APPLICATION_JSON)
+					.build();
+		} else {
+			return Response
+					.status(Response.Status.CONFLICT)
+					.entity("{\"mensaje\":\"No se pudo actualizar el usuario. \"}")
+					.type(MediaType.APPLICATION_JSON)
+					.build();
+		}
 	}
 
 }
