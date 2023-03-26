@@ -15,8 +15,13 @@ Ej03 - API en Spring Boot que consume datos de otra Api para obtener un listado 
 
 ![image](https://user-images.githubusercontent.com/19653664/227660153-fd09a609-3d22-4ef5-bc7e-b3a439f6e6f1.png)
 
-Ej04 - JSF - Conceptos básicos de JSF
+Ej04 - JSF - Conceptos básicos de JSF, controles, envío de formularios, Bootstrap
 
 ![image](https://user-images.githubusercontent.com/19653664/227660336-1f87cf41-adf6-4d56-9964-6c782b440ae3.png)
+![image](https://user-images.githubusercontent.com/19653664/227803194-e7f079f2-ecbb-4164-91fc-06008c279bcc.png)
 
-Ej05 - Introducción a React
+
+Ej05 - Introducción a React, componentes Class, Function, estilos
+
+![image](https://user-images.githubusercontent.com/19653664/227803873-d2ab3e0c-2b30-45d7-8614-8d80fd4868f2.png)
+
